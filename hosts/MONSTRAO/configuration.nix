@@ -37,5 +37,7 @@
     ];
   };
 
+  boot.lanzaboote.settings.reboot-for-bitlocker = true;
+
   system.stateVersion = "26.11";
 }

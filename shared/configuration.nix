@@ -16,4 +16,15 @@
     extraGroups = [ "wheel" ];
     hashedPasswordFile = "/etc/secrets/isolino-password-hash";
   };
+
+  # Boot
+  boot.lanzaboote = {
+    enable = true;
+    pkiBundle = "/var/lib/sbctl";
+    autoGenerateKeys.enable = true;
+    autoEnrollKeys.enable = true;
+    configurationLimit = 4;
+    # On by default; off so that nobody at the boot menu can edit the kernel command line.
+    settings.editor = false;
+  };
 }

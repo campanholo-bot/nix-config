@@ -1,17 +1,28 @@
 {
   inputs.nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
 
+  inputs.lanzaboote = {
+    url = "github:nix-community/lanzaboote/v1.2.0";
+    inputs.nixpkgs.follows = "nixpkgs";
+  };
+
   outputs =
-    { nixpkgs, ... }@inputs:
+    { nixpkgs, lanzaboote, ... }@inputs:
     {
       nixosConfigurations.MONSTRAO = nixpkgs.lib.nixosSystem {
         specialArgs = { inherit inputs; };
-        modules = [ ./hosts/MONSTRAO/configuration.nix ];
+        modules = [
+          lanzaboote.nixosModules.lanzaboote
+          ./hosts/MONSTRAO/configuration.nix
+        ];
       };
 
       nixosConfigurations.MONSTRINHO = nixpkgs.lib.nixosSystem {
         specialArgs = { inherit inputs; };
-        modules = [ ./hosts/MONSTRINHO/configuration.nix ];
+        modules = [
+          lanzaboote.nixosModules.lanzaboote
+          ./hosts/MONSTRINHO/configuration.nix
+        ];
       };
     };
 }
