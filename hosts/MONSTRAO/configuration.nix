@@ -8,11 +8,7 @@
 
   # Disk
   # The partitions are made by hand beside Windows, and these names are given to them at install.
-  boot.initrd.luks.devices.crypted = {
-    device = "/dev/disk/by-partlabel/nixos";
-    allowDiscards = true;
-    crypttabExtraOpts = [ "tpm2-device=auto" ];
-  };
+  boot.initrd.luks.devices.crypted.device = "/dev/disk/by-partlabel/nixos";
   fileSystems."/" = {
     device = "/dev/mapper/crypted";
     fsType = "btrfs";

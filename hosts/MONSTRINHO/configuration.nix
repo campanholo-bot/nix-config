@@ -1,6 +1,7 @@
 {
   imports = [
     ./hardware-configuration.nix
+    ./disk.nix
     ../../shared/configuration.nix
   ];
 

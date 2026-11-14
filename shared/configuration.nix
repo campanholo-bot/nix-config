@@ -17,6 +17,12 @@
     hashedPasswordFile = "/etc/secrets/isolino-password-hash";
   };
 
+  # Disk
+  boot.initrd.luks.devices.crypted = {
+    allowDiscards = true;
+    crypttabExtraOpts = [ "tpm2-device=auto" ];
+  };
+
   # Boot
   boot.lanzaboote = {
     enable = true;

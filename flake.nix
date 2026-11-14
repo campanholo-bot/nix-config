@@ -6,8 +6,18 @@
     inputs.nixpkgs.follows = "nixpkgs";
   };
 
+  inputs.disko = {
+    url = "github:nix-community/disko";
+    inputs.nixpkgs.follows = "nixpkgs";
+  };
+
   outputs =
-    { nixpkgs, lanzaboote, ... }@inputs:
+    {
+      nixpkgs,
+      lanzaboote,
+      disko,
+      ...
+    }@inputs:
     {
       nixosConfigurations.MONSTRAO = nixpkgs.lib.nixosSystem {
         specialArgs = { inherit inputs; };
@@ -21,6 +31,7 @@
         specialArgs = { inherit inputs; };
         modules = [
           lanzaboote.nixosModules.lanzaboote
+          disko.nixosModules.disko
           ./hosts/MONSTRINHO/configuration.nix
         ];
       };
