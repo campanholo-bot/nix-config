@@ -9,6 +9,10 @@
   ];
   nix.channel.enable = false;
   nixpkgs.config.allowUnfree = true;
+  programs.nh.clean = {
+    enable = true;
+    extraArgs = "--keep 4 --no-direnv";
+  };
 
   # Programs
   environment.systemPackages = with pkgs; [
