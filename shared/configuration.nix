@@ -26,6 +26,9 @@
 
   # Network
   services.tailscale.enable = true;
+  # On iptables, Tailscale's own rule accepts all tailnet traffic ahead of the
+  # firewall's; on nftables the firewall's rules also hold for the tailnet.
+  networking.nftables.enable = true;
 
   # Accounts
   users.mutableUsers = false;
