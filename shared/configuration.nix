@@ -1,3 +1,4 @@
+{ pkgs, ... }:
 {
   time.timeZone = "America/Sao_Paulo";
 
@@ -8,6 +9,16 @@
   ];
   nix.channel.enable = false;
   nixpkgs.config.allowUnfree = true;
+
+  # Programs
+  environment.systemPackages = with pkgs; [
+    git
+    gh
+    ripgrep
+    jq
+    python3
+  ];
+  programs.direnv.enable = true;
 
   # Accounts
   users.mutableUsers = false;
