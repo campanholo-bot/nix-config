@@ -24,6 +24,9 @@
   ];
   programs.direnv.enable = true;
 
+  # Network
+  services.tailscale.enable = true;
+
   # Accounts
   users.mutableUsers = false;
   users.users.isolino = {
