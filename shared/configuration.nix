@@ -27,4 +27,15 @@
     # On by default; off so that nobody at the boot menu can edit the kernel command line.
     settings.editor = false;
   };
+
+  # Snapshots
+  services.snapper.configs.home = {
+    SUBVOLUME = "/home";
+    TIMELINE_CREATE = true;
+    TIMELINE_CLEANUP = true;
+    TIMELINE_LIMIT_HOURLY = 168;
+    TIMELINE_LIMIT_DAILY = 0;
+    TIMELINE_LIMIT_MONTHLY = 0;
+    TIMELINE_LIMIT_YEARLY = 0;
+  };
 }
