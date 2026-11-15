@@ -102,6 +102,8 @@
       Restart = "on-failure";
     };
   };
+  # Without it, dead keys do not compose in GTK 4 apps under niri.
+  environment.sessionVariables.GTK_IM_MODULE = "simple";
 
   system.stateVersion = "26.11";
 }
