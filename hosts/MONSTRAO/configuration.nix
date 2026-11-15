@@ -53,6 +53,8 @@
     # On by default; nothing uses NVIDIA's settings app.
     nvidiaSettings = false;
   };
+  services.pipewire.enable = true;
+  security.rtkit.enable = true;
 
   system.stateVersion = "26.11";
 }
