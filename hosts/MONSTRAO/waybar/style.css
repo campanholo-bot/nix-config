@@ -33,3 +33,12 @@ window#waybar {
   color: #dedede;
   background-color: #3b3b3b;
 }
+
+tooltip {
+  background-color: #181818;
+  border: 1px solid #3b3b3b;
+}
+
+tooltip label {
+  color: #b9b9b9;
+}
