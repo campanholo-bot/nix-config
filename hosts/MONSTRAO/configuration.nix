@@ -62,8 +62,12 @@
 
   # Session
   programs.niri.enable = true;
-  # niri starts xwayland-satellite from the PATH when an X11 app connects.
-  environment.systemPackages = [ pkgs.xwayland-satellite ];
+  environment.systemPackages = [
+    # niri starts it from the PATH when an X11 app connects.
+    pkgs.xwayland-satellite
+    # Its packaged user service starts on the first notification.
+    pkgs.mako
+  ];
   services.greetd = {
     enable = true;
     useTextGreeter = true;
