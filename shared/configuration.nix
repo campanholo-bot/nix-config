@@ -54,6 +54,10 @@ in
       Restart = "on-failure";
     };
   };
+  # For the logins by hand (README.md). The service names the store path, so
+  # that a changed file changes the unit and restarts it.
+  environment.etc."cli-proxy-api/config.yaml".source = ./cli-proxy-api/config.yaml;
+  users.users.isolino.packages = [ llm-agents.cli-proxy-api ];
 
   # Network
   services.tailscale.enable = true;
