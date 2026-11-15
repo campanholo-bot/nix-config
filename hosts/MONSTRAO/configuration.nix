@@ -71,6 +71,17 @@
   };
   console.font = "ter-v24b";
   console.packages = [ pkgs.terminus_font ];
+  systemd.user.services.swaybg = {
+    description = "Wallpaper";
+    wantedBy = [ "graphical-session.target" ];
+    partOf = [ "graphical-session.target" ];
+    after = [ "graphical-session.target" ];
+    requisite = [ "graphical-session.target" ];
+    serviceConfig = {
+      ExecStart = "${lib.getExe pkgs.swaybg} --mode fill --image ${./monk-by-the-sea.jpg}";
+      Restart = "on-failure";
+    };
+  };
 
   system.stateVersion = "26.11";
 }
