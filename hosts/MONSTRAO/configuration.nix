@@ -1,3 +1,4 @@
+{ lib, pkgs, ... }:
 {
   imports = [
     ./hardware-configuration.nix
@@ -58,6 +59,16 @@
   programs.coolercontrol.enable = true;
   # Nothing loads the driver for the board's Nuvoton fan controller by itself.
   boot.kernelModules = [ "nct6775" ];
+
+  # Session
+  programs.niri.enable = true;
+  # niri starts xwayland-satellite from the PATH when an X11 app connects.
+  environment.systemPackages = [ pkgs.xwayland-satellite ];
+  services.greetd = {
+    enable = true;
+    useTextGreeter = true;
+    settings.default_session.command = "${lib.getExe pkgs.tuigreet} --time --remember --background doom --asterisks --cmd niri-session";
+  };
 
   system.stateVersion = "26.11";
 }
