@@ -55,6 +55,9 @@
   };
   services.pipewire.enable = true;
   security.rtkit.enable = true;
+  programs.coolercontrol.enable = true;
+  # Nothing loads the driver for the board's Nuvoton fan controller by itself.
+  boot.kernelModules = [ "nct6775" ];
 
   system.stateVersion = "26.11";
 }
