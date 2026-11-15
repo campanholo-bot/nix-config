@@ -19,6 +19,11 @@
   # Not following nixpkgs: numtide's cache holds these packages built against its own.
   inputs.llm-agents.url = "github:numtide/llm-agents.nix";
 
+  inputs.impeccable = {
+    url = "github:pbakaus/impeccable";
+    flake = false;
+  };
+
   outputs =
     {
       nixpkgs,

@@ -41,6 +41,8 @@ in
     python3
     llm-agents.claude-code
     llm-agents.pi
+    # Impeccable's launcher otherwise downloads its engine.
+    (callPackage ./impeccable.nix { src = inputs.impeccable; })
   ];
   programs.direnv.enable = true;
 

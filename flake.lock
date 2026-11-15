@@ -126,6 +126,22 @@
         "type": "github"
       }
     },
+    "impeccable": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1794707522,
+        "narHash": "sha256-BSjkvhmwbsFigXCh9TgIPB1rE7Xh53b0xD83V084DIk=",
+        "owner": "pbakaus",
+        "repo": "impeccable",
+        "rev": "2b86d9c07b97d4bed7de23583e1bd1e58dd2baae",
+        "type": "github"
+      },
+      "original": {
+        "owner": "pbakaus",
+        "repo": "impeccable",
+        "type": "github"
+      }
+    },
     "lanzaboote": {
       "inputs": {
         "crane": "crane",
@@ -230,6 +246,7 @@
       "inputs": {
         "disko": "disko",
         "home-manager": "home-manager",
+        "impeccable": "impeccable",
         "lanzaboote": "lanzaboote",
         "llm-agents": "llm-agents",
         "nixpkgs": "nixpkgs_2"
