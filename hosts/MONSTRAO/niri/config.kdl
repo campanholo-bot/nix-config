@@ -30,6 +30,9 @@ layout {
         inactive-color "#3b3b3b"
         urgent-color "#ed4a46"
     }
+    insert-hint {
+        color "#4f9cfe80"
+    }
 }
 
 // Keeps the wallpaper still behind the workspaces and the overview.
