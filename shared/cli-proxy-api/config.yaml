@@ -1,0 +1,9 @@
+server:
+  host: 127.0.0.1
+  port: 8317
+
+management:
+  disable-control-panel: true
+
+routing:
+  strategy: fill-first

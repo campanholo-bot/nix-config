@@ -44,6 +44,17 @@ in
   ];
   programs.direnv.enable = true;
 
+  # Subscription proxy
+  systemd.user.services.cli-proxy-api = {
+    wantedBy = [ "default.target" ];
+    unitConfig.ConditionUser = "isolino";
+    serviceConfig = {
+      ExecStart = "${llm-agents.cli-proxy-api}/bin/cli-proxy-api -config ${./cli-proxy-api/config.yaml}";
+      UMask = "0077";
+      Restart = "on-failure";
+    };
+  };
+
   # Network
   services.tailscale.enable = true;
   # On iptables, Tailscale's own rule accepts all tailnet traffic ahead of the
