@@ -1,0 +1,14 @@
+{
+  "skills": [
+    "~/.claude/skills/mattpocock-skills/skills/engineering",
+    "~/.claude/skills/mattpocock-skills/skills/productivity"
+  ],
+  "compaction": {
+    "enabled": false
+  },
+  "retry": {
+    "enabled": false
+  },
+  "hideThinkingBlock": true,
+  "theme": "dark"
+}

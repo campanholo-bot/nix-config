@@ -17,4 +17,7 @@
   home.file.".claude/settings.json".source = ./claude-code/settings.json;
   home.file.".claude/skills/mattpocock-skills".source = inputs.mattpocock-skills;
   home.file.".claude/skills/impeccable".source = "${inputs.impeccable}/plugin";
+
+  # pi
+  home.file.".pi/agent/settings.json".source = ./pi/settings.json;
 }
