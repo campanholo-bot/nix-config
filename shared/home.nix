@@ -9,6 +9,15 @@
       user.name = "Enzo L. Campanholo";
       user.email = "199099542+enzo-campanholo@users.noreply.github.com";
       init.defaultBranch = "main";
+      # What `gh auth setup-git` writes, which it cannot do in a read-only config.
+      credential."https://github.com".helper = [
+        ""
+        "!/run/current-system/sw/bin/gh auth git-credential"
+      ];
+      credential."https://gist.github.com".helper = [
+        ""
+        "!/run/current-system/sw/bin/gh auth git-credential"
+      ];
     };
     ignores = [ "**/.claude/settings.local.json" ];
   };
