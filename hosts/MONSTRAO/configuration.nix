@@ -6,6 +6,9 @@
 
   networking.hostName = "MONSTRAO";
 
+  # Tailscale answers Taildrop inside its own process, where the firewall does not see it.
+  services.tailscale.disableTaildrop = true;
+
   # Disk
   # The partitions are made by hand beside Windows, and these names are given to them at install.
   boot.initrd.luks.devices.crypted.device = "/dev/disk/by-partlabel/nixos";
