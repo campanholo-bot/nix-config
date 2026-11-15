@@ -14,6 +14,15 @@
     extraArgs = "--keep 4 --no-direnv";
   };
 
+  # Nightly install
+  system.autoUpgrade = {
+    enable = true;
+    # The branch is named so that the hosts never follow the repo's default branch.
+    flake = "github:campanholo-bot/nix-config/main";
+    # `--upgrade` updates root's channels, which a flake does not read.
+    upgrade = false;
+  };
+
   # Programs
   environment.systemPackages = with pkgs; [
     git
