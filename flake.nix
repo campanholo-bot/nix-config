@@ -11,6 +11,9 @@
     inputs.nixpkgs.follows = "nixpkgs";
   };
 
+  # Not following nixpkgs: numtide's cache holds these packages built against its own.
+  inputs.llm-agents.url = "github:numtide/llm-agents.nix";
+
   outputs =
     {
       nixpkgs,

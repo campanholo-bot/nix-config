@@ -1,4 +1,7 @@
-{ pkgs, ... }:
+{ pkgs, inputs, ... }:
+let
+  llm-agents = inputs.llm-agents.packages.${pkgs.stdenv.hostPlatform.system};
+in
 {
   time.timeZone = "America/Sao_Paulo";
 
@@ -8,6 +11,12 @@
     "flakes"
   ];
   nix.channel.enable = false;
+  # numtide's cache announces priority 30, ahead of the official cache's 40;
+  # 50 asks it after.
+  nix.settings.substituters = [ "https://cache.numtide.com?priority=50" ];
+  nix.settings.trusted-public-keys = [
+    "niks3.numtide.com-1:DTx8wZduET09hRmMtKdQDxNNthLQETkc/yaX7M4qK0g="
+  ];
   nixpkgs.config.allowUnfree = true;
   programs.nh.clean = {
     enable = true;
@@ -30,6 +39,8 @@
     ripgrep
     jq
     python3
+    llm-agents.claude-code
+    llm-agents.pi
   ];
   programs.direnv.enable = true;
 
