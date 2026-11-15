@@ -43,5 +43,16 @@
 
   boot.lanzaboote.settings.reboot-for-bitlocker = true;
 
+  # Hardware
+  # NixOS switches the NVIDIA driver on through this list, though no X server runs.
+  services.xserver.videoDrivers = [ "nvidia" ];
+  hardware.nvidia = {
+    # Blackwell cards are supported only by the open kernel module.
+    open = true;
+    powerManagement.enable = true;
+    # On by default; nothing uses NVIDIA's settings app.
+    nvidiaSettings = false;
+  };
+
   system.stateVersion = "26.11";
 }
