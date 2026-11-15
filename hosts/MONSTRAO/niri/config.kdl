@@ -57,8 +57,6 @@ binds {
     Mod+X hotkey-overlay-title="Power Menu" { spawn-sh r#"case $(printf 'Lock\nSuspend\nLog out\nReboot\nPower off' | fuzzel --dmenu) in Lock) swaylock ;; Suspend) systemctl suspend ;; "Log out") niri msg action quit --skip-confirmation ;; Reboot) systemctl reboot ;; "Power off") systemctl poweroff ;; esac"#; }
     Mod+Shift+B hotkey-overlay-title="Show or Hide the Bar" { spawn "pkill" "-SIGUSR1" "waybar"; }
 
-    Super+Alt+S allow-when-locked=true hotkey-overlay-title=null { spawn-sh "pkill orca || exec orca"; }
-
     XF86AudioRaiseVolume allow-when-locked=true { spawn-sh "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.1+ -l 1.0"; }
     XF86AudioLowerVolume allow-when-locked=true { spawn-sh "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.1-"; }
     XF86AudioMute        allow-when-locked=true { spawn-sh "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"; }
@@ -68,9 +66,6 @@ binds {
     XF86AudioStop        allow-when-locked=true { spawn-sh "playerctl stop"; }
     XF86AudioPrev        allow-when-locked=true { spawn-sh "playerctl previous"; }
     XF86AudioNext        allow-when-locked=true { spawn-sh "playerctl next"; }
-
-    XF86MonBrightnessUp allow-when-locked=true { spawn "brightnessctl" "--class=backlight" "set" "+10%"; }
-    XF86MonBrightnessDown allow-when-locked=true { spawn "brightnessctl" "--class=backlight" "set" "10%-"; }
 
     Mod+O repeat=false { toggle-overview; }
 
