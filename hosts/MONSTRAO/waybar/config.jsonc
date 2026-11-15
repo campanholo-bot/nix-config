@@ -1,8 +1,8 @@
 {
   "position": "bottom",
   "start_hidden": true,
-  "modules-left": ["niri/window"],
-  "modules-center": ["niri/workspaces"],
+  "modules-left": ["niri/workspaces"],
+  "modules-center": ["niri/window"],
   "modules-right": ["pulseaudio", "clock"],
   "pulseaudio": {
     "format": "{volume}%",
