@@ -1,0 +1,15 @@
+{
+  "position": "bottom",
+  "start_hidden": true,
+  "modules-left": ["niri/window"],
+  "modules-center": ["niri/workspaces"],
+  "modules-right": ["pulseaudio", "clock"],
+  "pulseaudio": {
+    "format": "{volume}%",
+    "format-muted": "muted",
+    "on-click": "/run/current-system/sw/bin/pavucontrol"
+  },
+  "clock": {
+    "format": "{:%a %b %d %H:%M}"
+  }
+}

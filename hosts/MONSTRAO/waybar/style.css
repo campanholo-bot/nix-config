@@ -1,0 +1,35 @@
+/* Selenized Black, greys only */
+* {
+  font-family: "JetBrains Mono", monospace;
+  min-height: 0;
+  border: none;
+  border-radius: 0;
+  box-shadow: none;
+  text-shadow: none;
+}
+
+window#waybar {
+  background-color: #181818;
+  color: #b9b9b9;
+}
+
+#window {
+  font-family: sans-serif;
+}
+
+#window,
+#pulseaudio,
+#clock {
+  padding: 0 6px;
+}
+
+#workspaces button {
+  padding: 0 4px;
+  color: #777777;
+  background: none;
+}
+
+#workspaces button.active {
+  color: #dedede;
+  background-color: #3b3b3b;
+}
