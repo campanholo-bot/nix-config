@@ -87,6 +87,7 @@
     };
   };
   programs.waybar.enable = true;
+  security.soteria.enable = true;
 
   system.stateVersion = "26.11";
 }
