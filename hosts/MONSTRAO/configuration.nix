@@ -68,6 +68,7 @@
     # Its packaged user service starts on the first notification.
     pkgs.mako
     pkgs.swaylock
+    pkgs.fuzzel
   ];
   services.greetd = {
     enable = true;
