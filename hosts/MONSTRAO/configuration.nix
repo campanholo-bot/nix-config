@@ -69,6 +69,8 @@
     useTextGreeter = true;
     settings.default_session.command = "${lib.getExe pkgs.tuigreet} --time --remember --background doom --asterisks --cmd niri-session";
   };
+  console.font = "ter-v24b";
+  console.packages = [ pkgs.terminus_font ];
 
   system.stateVersion = "26.11";
 }
