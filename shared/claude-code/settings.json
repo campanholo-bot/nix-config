@@ -1,0 +1,19 @@
+{
+  "autoMemoryEnabled": false,
+  "attribution": {
+    "commit": "",
+    "pr": ""
+  },
+  "enabledPlugins": {
+    "cc-plugin-telemetry@builtin": false,
+    "cc-plugin-plugin-authoring@builtin": false,
+    "impeccable@skills-dir": false
+  },
+  "env": {
+    "ANTHROPIC_BASE_URL": "http://127.0.0.1:8317",
+    "IMPECCABLE_BIN": "/run/current-system/sw/bin/impeccable"
+  },
+  "model": "opus",
+  "theme": "dark",
+  "tui": "fullscreen"
+}

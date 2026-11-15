@@ -188,6 +188,22 @@
         "type": "github"
       }
     },
+    "mattpocock-skills": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1794472958,
+        "narHash": "sha256-AYSRCvBL8TDDdW3rgKu2T7gl4YYDoDId0jYbabEFyfs=",
+        "owner": "mattpocock",
+        "repo": "skills",
+        "rev": "5863806dd4e15c63174bee4e7515a4256792ecfa",
+        "type": "github"
+      },
+      "original": {
+        "owner": "mattpocock",
+        "repo": "skills",
+        "type": "github"
+      }
+    },
     "nixpkgs": {
       "locked": {
         "lastModified": 1793977579,
@@ -249,6 +265,7 @@
         "impeccable": "impeccable",
         "lanzaboote": "lanzaboote",
         "llm-agents": "llm-agents",
+        "mattpocock-skills": "mattpocock-skills",
         "nixpkgs": "nixpkgs_2"
       }
     },

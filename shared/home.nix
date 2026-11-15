@@ -1,3 +1,4 @@
+{ inputs, ... }:
 {
   # Git
   programs.git = {
@@ -11,4 +12,9 @@
     };
     ignores = [ "**/.claude/settings.local.json" ];
   };
+
+  # Claude Code
+  home.file.".claude/settings.json".source = ./claude-code/settings.json;
+  home.file.".claude/skills/mattpocock-skills".source = inputs.mattpocock-skills;
+  home.file.".claude/skills/impeccable".source = "${inputs.impeccable}/plugin";
 }
