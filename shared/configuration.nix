@@ -29,6 +29,13 @@
   # On iptables, Tailscale's own rule accepts all tailnet traffic ahead of the
   # firewall's; on nftables the firewall's rules also hold for the tailnet.
   networking.nftables.enable = true;
+  # The router's IPv6 DNS proxy returns malformed replies to EDNS queries, and the
+  # router cannot be configured: keep the IPv4 servers DHCPv4 hands out, and ignore
+  # those from router advertisements (RDNSS) and DHCPv6.
+  networking.dhcpcd.extraConfig = ''
+    nooption nd_rdnss
+    nooption dhcp6_name_servers
+  '';
 
   # Accounts
   users.mutableUsers = false;
