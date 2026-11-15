@@ -6,6 +6,8 @@
 
   networking.hostName = "MONSTRAO";
 
+  home-manager.users.isolino = ./home.nix;
+
   # Tailscale answers Taildrop inside its own process, where the firewall does not see it.
   services.tailscale.disableTaildrop = true;
 

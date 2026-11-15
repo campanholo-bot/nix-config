@@ -7,6 +7,8 @@
 
   networking.hostName = "MONSTRINHO";
 
+  home-manager.users.isolino = ./home.nix;
+
   console.keyMap = "br-abnt2";
 
   zramSwap.enable = true;

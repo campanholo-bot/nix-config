@@ -11,6 +11,11 @@
     inputs.nixpkgs.follows = "nixpkgs";
   };
 
+  inputs.home-manager = {
+    url = "github:nix-community/home-manager";
+    inputs.nixpkgs.follows = "nixpkgs";
+  };
+
   # Not following nixpkgs: numtide's cache holds these packages built against its own.
   inputs.llm-agents.url = "github:numtide/llm-agents.nix";
 
@@ -19,6 +24,7 @@
       nixpkgs,
       lanzaboote,
       disko,
+      home-manager,
       ...
     }@inputs:
     {
@@ -26,6 +32,11 @@
         specialArgs = { inherit inputs; };
         modules = [
           lanzaboote.nixosModules.lanzaboote
+          home-manager.nixosModules.home-manager
+          {
+            home-manager.useGlobalPkgs = true;
+            home-manager.useUserPackages = true;
+          }
           ./hosts/MONSTRAO/configuration.nix
         ];
       };
@@ -35,6 +46,11 @@
         modules = [
           lanzaboote.nixosModules.lanzaboote
           disko.nixosModules.disko
+          home-manager.nixosModules.home-manager
+          {
+            home-manager.useGlobalPkgs = true;
+            home-manager.useUserPackages = true;
+          }
           ./hosts/MONSTRINHO/configuration.nix
         ];
       };
