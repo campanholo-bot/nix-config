@@ -67,6 +67,7 @@
     pkgs.xwayland-satellite
     # Its packaged user service starts on the first notification.
     pkgs.mako
+    pkgs.swaylock
   ];
   services.greetd = {
     enable = true;
@@ -88,6 +89,18 @@
   };
   programs.waybar.enable = true;
   security.soteria.enable = true;
+  systemd.user.services.swayidle = {
+    description = "Lock before suspend";
+    wantedBy = [ "graphical-session.target" ];
+    partOf = [ "graphical-session.target" ];
+    after = [ "graphical-session.target" ];
+    requisite = [ "graphical-session.target" ];
+    path = [ pkgs.swaylock ];
+    serviceConfig = {
+      ExecStart = "${lib.getExe pkgs.swayidle} -w before-sleep 'swaylock -f'";
+      Restart = "on-failure";
+    };
+  };
 
   system.stateVersion = "26.11";
 }
