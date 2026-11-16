@@ -17,6 +17,8 @@
 
   # Fonts and theme
   xdg.configFile."fontconfig/fonts.conf".source = ./fontconfig/fonts.conf;
+  dconf.settings."org/gnome/desktop/interface".color-scheme = "prefer-dark";
+  xdg.configFile."environment.d/qt.conf".source = ./environment.d/qt.conf;
 
   home.stateVersion = "26.11";
 }
