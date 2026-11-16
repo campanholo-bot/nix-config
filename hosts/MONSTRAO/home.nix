@@ -11,6 +11,7 @@
 
   # Programs
   xdg.configFile."ghostty/config.ghostty".source = ./ghostty/config.ghostty;
+  xdg.configFile."fish/config.fish".source = ./fish/config.fish;
 
   home.stateVersion = "26.11";
 }
