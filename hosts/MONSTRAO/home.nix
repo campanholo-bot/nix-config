@@ -15,5 +15,8 @@
   xdg.configFile."sioyek/prefs_user.config".source = ./sioyek/prefs_user.config;
   xdg.configFile."mimeapps.list".source = ./mimeapps.list;
 
+  # Fonts and theme
+  xdg.configFile."fontconfig/fonts.conf".source = ./fontconfig/fonts.conf;
+
   home.stateVersion = "26.11";
 }
