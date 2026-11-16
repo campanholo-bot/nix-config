@@ -9,5 +9,8 @@
   xdg.configFile."swaylock/config".source = ./swaylock/config;
   xdg.configFile."fuzzel/fuzzel.ini".source = ./fuzzel/fuzzel.ini;
 
+  # Programs
+  xdg.configFile."ghostty/config.ghostty".source = ./ghostty/config.ghostty;
+
   home.stateVersion = "26.11";
 }

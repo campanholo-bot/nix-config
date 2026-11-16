@@ -1,0 +1,3 @@
+font-family = JetBrains Mono
+theme = Selenized Black
+command = /run/current-system/sw/bin/fish
