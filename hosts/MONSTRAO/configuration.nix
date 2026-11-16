@@ -1,4 +1,9 @@
-{ lib, pkgs, ... }:
+{
+  lib,
+  pkgs,
+  inputs,
+  ...
+}:
 {
   imports = [
     ./hardware-configuration.nix
@@ -106,6 +111,7 @@
     swaylock
     fuzzel
     ghostty
+    inputs.helium.packages.${pkgs.stdenv.hostPlatform.system}.helium
     sioyek
     loupe
     mpv
