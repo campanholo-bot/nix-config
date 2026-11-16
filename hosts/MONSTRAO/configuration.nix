@@ -119,6 +119,8 @@
     wl-clipboard
     playerctl
     pavucontrol
+    # nixpkgs' comma has no package index; this one carries the prebuilt one.
+    inputs.nix-index-database.packages.${pkgs.stdenv.hostPlatform.system}.comma-with-db
   ];
   programs.fish.enable = true;
   # Nautilus's trash and disk mounting.
