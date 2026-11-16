@@ -23,7 +23,9 @@ window#waybar {
   padding: 0 6px;
 }
 
+/* The GTK theme's minimum button width left the number off-centre. */
 #workspaces button {
+  min-width: 0;
   padding: 0 4px;
   color: #777777;
   background: none;
