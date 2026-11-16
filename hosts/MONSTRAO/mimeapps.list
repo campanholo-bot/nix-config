@@ -1,0 +1,11 @@
+[Default Applications]
+text/plain=emacs.desktop
+video/mp4=mpv.desktop
+application/pdf=sioyek.desktop
+image/png=org.gnome.Loupe.desktop
+image/jpeg=org.gnome.Loupe.desktop
+image/gif=org.gnome.Loupe.desktop
+image/webp=org.gnome.Loupe.desktop
+x-scheme-handler/http=helium.desktop
+x-scheme-handler/https=helium.desktop
+inode/directory=org.gnome.Nautilus.desktop
