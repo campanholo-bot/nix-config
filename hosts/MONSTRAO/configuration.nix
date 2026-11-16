@@ -62,14 +62,6 @@
 
   # Session
   programs.niri.enable = true;
-  environment.systemPackages = [
-    # niri starts it from the PATH when an X11 app connects.
-    pkgs.xwayland-satellite
-    # Its packaged user service starts on the first notification.
-    pkgs.mako
-    pkgs.swaylock
-    pkgs.fuzzel
-  ];
   services.greetd = {
     enable = true;
     useTextGreeter = true;
@@ -104,6 +96,28 @@
   };
   # Without it, dead keys do not compose in GTK 4 apps under niri.
   environment.sessionVariables.GTK_IM_MODULE = "simple";
+
+  # Programs
+  environment.systemPackages = with pkgs; [
+    # niri starts it from the PATH when an X11 app connects.
+    xwayland-satellite
+    # Its packaged user service starts on the first notification.
+    mako
+    swaylock
+    fuzzel
+    ghostty
+    sioyek
+    loupe
+    mpv
+    nautilus
+    wl-clipboard
+    playerctl
+    pavucontrol
+  ];
+  programs.fish.enable = true;
+  # Nautilus's trash and disk mounting.
+  services.gvfs.enable = true;
+  fonts.packages = [ pkgs.jetbrains-mono ];
 
   system.stateVersion = "26.11";
 }
