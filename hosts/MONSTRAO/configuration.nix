@@ -114,7 +114,8 @@
     inputs.helium.packages.${pkgs.stdenv.hostPlatform.system}.helium
     sioyek
     loupe
-    mpv
+    # Its MPRIS script lets playerctl, and so the media keys, reach it.
+    (mpv.override { scripts = [ mpvScripts.mpris ]; })
     nautilus
     wl-clipboard
     playerctl
