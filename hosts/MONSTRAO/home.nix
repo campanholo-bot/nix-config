@@ -33,6 +33,16 @@
   };
   xdg.configFile."emacs/init.el".source = ./emacs/init.el;
 
+  # Neovim
+  programs.neovim = {
+    enable = true;
+    viAlias = true;
+    vimAlias = true;
+    plugins = [ (pkgs.callPackage ./selenized.nix { }) ];
+    # The module writes init.lua itself, with lines of its own, so the file is read into it.
+    initLua = builtins.readFile ./nvim/init.lua;
+  };
+
   # Fonts and theme
   xdg.configFile."fontconfig/fonts.conf".source = ./fontconfig/fonts.conf;
   dconf.settings."org/gnome/desktop/interface".color-scheme = "prefer-dark";
