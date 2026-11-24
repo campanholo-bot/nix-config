@@ -42,6 +42,8 @@
     # The module writes init.lua itself, with lines of its own, so the file is read into it.
     initLua = builtins.readFile ./nvim/init.lua;
   };
+  # EDITOR and VISUAL sit in the login shell's file, whose environment niri's session imports.
+  home.file.".bash_profile".source = ./bash/.bash_profile;
 
   # Fonts and theme
   xdg.configFile."fontconfig/fonts.conf".source = ./fontconfig/fonts.conf;
