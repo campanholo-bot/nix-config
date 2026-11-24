@@ -1,3 +1,4 @@
+{ pkgs, ... }:
 {
   imports = [ ../../shared/home.nix ];
 
@@ -14,6 +15,23 @@
   xdg.configFile."fish/config.fish".source = ./fish/config.fish;
   xdg.configFile."sioyek/prefs_user.config".source = ./sioyek/prefs_user.config;
   xdg.configFile."mimeapps.list".source = ./mimeapps.list;
+
+  # Emacs
+  programs.emacs = {
+    enable = true;
+    package = pkgs.emacs-pgtk;
+    extraPackages = epkgs: [
+      epkgs.solarized-theme
+      epkgs.evil
+      epkgs.evil-collection
+      epkgs.envrc
+      epkgs.lsp-mode
+      epkgs.tuareg
+      (epkgs.callPackage ./lean4-mode.nix { })
+      epkgs.markdown-mode
+    ];
+  };
+  xdg.configFile."emacs/init.el".source = ./emacs/init.el;
 
   # Fonts and theme
   xdg.configFile."fontconfig/fonts.conf".source = ./fontconfig/fonts.conf;
