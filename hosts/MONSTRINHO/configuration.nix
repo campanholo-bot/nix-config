@@ -39,6 +39,34 @@
   systemd.services.upower.wantedBy = [ "multi-user.target" ];
   services.fwupd.enable = true;
   environment.systemPackages = [ pkgs.ghostty.terminfo ];
+  # Browsers that tools download (T3's Chrome, Playwright, Puppeteer) are generic
+  # Linux binaries.
+  programs.nix-ld = {
+    enable = true;
+    libraries = with pkgs; [
+      glib
+      nspr
+      nss
+      dbus
+      at-spi2-core
+      libx11
+      libxcomposite
+      libxdamage
+      libxext
+      libxfixes
+      libxrandr
+      libxcb
+      libxkbcommon
+      libgbm
+      expat
+      alsa-lib
+      fontconfig
+      freetype
+      cairo
+      pango
+      cups
+    ];
+  };
 
   system.stateVersion = "26.11";
 }
