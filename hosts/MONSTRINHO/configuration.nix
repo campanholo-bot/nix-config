@@ -74,7 +74,9 @@
     openssh.authorizedKeys.keys = [
       "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIJU9VqlHeLAvukPFLKW8vN4BedMxQBasFvn6JYD4NCZe"
     ];
+    linger = true;
   };
+  users.users.isolino.linger = true;
 
   # SSH
   services.openssh = {
