@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, inputs, ... }:
 {
   imports = [
     ./hardware-configuration.nix
@@ -90,6 +90,28 @@
       # line comes before the `AddressFamily any` that NixOS writes, and sshd takes
       # the first.
       AddressFamily = "inet";
+    };
+  };
+
+  # Services
+  systemd.user.services.hermes = {
+    description = "Hermes Agent gateway";
+    wantedBy = [ "default.target" ];
+    unitConfig = {
+      ConditionUser = "lavietos";
+      ConditionPathExists = "%h/.hermes/config.yaml";
+    };
+    # The default path would hide his own tools from the agent.
+    enableDefaultPath = false;
+    serviceConfig = {
+      ExecStart = "${
+        inputs.llm-agents.packages.${pkgs.stdenv.hostPlatform.system}.hermes-agent
+      }/bin/hermes gateway run";
+      UMask = "0077";
+      Restart = "on-failure";
+      # Hermes takes the terminate signal for a crash: it exits with 1, which leaves the
+      # unit failed, and records itself as still running. An interrupt is a planned stop.
+      KillSignal = "SIGINT";
     };
   };
 
