@@ -4,6 +4,8 @@
     ./hardware-configuration.nix
     ./disk.nix
     ../../shared/configuration.nix
+    (import ./t3.nix "isolino")
+    (import ./t3.nix "lavietos")
   ];
 
   networking.hostName = "MONSTRINHO";
