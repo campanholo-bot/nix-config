@@ -68,5 +68,18 @@
     ];
   };
 
+  # SSH
+  services.openssh = {
+    enable = true;
+    settings = {
+      PasswordAuthentication = false;
+      KbdInteractiveAuthentication = false;
+      # Off the public IPv6 address, which leaves SSH to the LAN and the tailnet. This
+      # line comes before the `AddressFamily any` that NixOS writes, and sshd takes
+      # the first.
+      AddressFamily = "inet";
+    };
+  };
+
   system.stateVersion = "26.11";
 }
