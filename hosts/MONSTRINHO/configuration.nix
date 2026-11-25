@@ -1,3 +1,4 @@
+{ pkgs, ... }:
 {
   imports = [
     ./hardware-configuration.nix
@@ -37,6 +38,7 @@
   # No desktop starts it, so it would otherwise never see the battery run down.
   systemd.services.upower.wantedBy = [ "multi-user.target" ];
   services.fwupd.enable = true;
+  environment.systemPackages = [ pkgs.ghostty.terminfo ];
 
   system.stateVersion = "26.11";
 }
