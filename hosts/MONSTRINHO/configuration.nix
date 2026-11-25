@@ -68,6 +68,14 @@
     ];
   };
 
+  # Accounts
+  users.users.lavietos = {
+    isNormalUser = true;
+    openssh.authorizedKeys.keys = [
+      "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIJU9VqlHeLAvukPFLKW8vN4BedMxQBasFvn6JYD4NCZe"
+    ];
+  };
+
   # SSH
   services.openssh = {
     enable = true;
