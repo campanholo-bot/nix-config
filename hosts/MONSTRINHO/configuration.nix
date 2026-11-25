@@ -30,6 +30,12 @@
   systemd.sleep.settings.Sleep.AllowSuspend = false;
   # The panel and its backlight go dark with the console.
   boot.kernelParams = [ "consoleblank=60" ];
+  services.upower = {
+    enable = true;
+    criticalPowerAction = "PowerOff";
+  };
+  # No desktop starts it, so it would otherwise never see the battery run down.
+  systemd.services.upower.wantedBy = [ "multi-user.target" ];
 
   system.stateVersion = "26.11";
 }
