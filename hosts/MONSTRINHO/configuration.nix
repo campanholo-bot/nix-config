@@ -36,6 +36,7 @@
   };
   # No desktop starts it, so it would otherwise never see the battery run down.
   systemd.services.upower.wantedBy = [ "multi-user.target" ];
+  services.fwupd.enable = true;
 
   system.stateVersion = "26.11";
 }
