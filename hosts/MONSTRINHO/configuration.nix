@@ -22,5 +22,14 @@
     };
   };
 
+  # The machine
+  # It runs headless with the lid closed.
+  services.logind.settings.Login.HandleLidSwitch = "ignore";
+  # Asleep, it is out of reach until someone opens the lid. It cannot hibernate:
+  # it has no swap on disk.
+  systemd.sleep.settings.Sleep.AllowSuspend = false;
+  # The panel and its backlight go dark with the console.
+  boot.kernelParams = [ "consoleblank=60" ];
+
   system.stateVersion = "26.11";
 }
