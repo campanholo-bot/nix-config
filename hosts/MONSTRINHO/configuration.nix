@@ -115,5 +115,11 @@
     };
   };
 
+  # Memory caps
+  systemd.slices.user.sliceConfig = {
+    MemoryMax = "6G";
+    MemorySwapMax = "2G";
+  };
+
   system.stateVersion = "26.11";
 }
