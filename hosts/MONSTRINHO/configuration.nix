@@ -125,6 +125,16 @@
     MemoryHigh = "2.5G";
     MemoryMax = "3G";
   };
+  # T3 puts its agents and terminals in app-t3code-agents.slice, which sits inside this
+  # slice in each user's own service manager.
+  systemd.user.slices.app-t3code.sliceConfig = {
+    MemoryHigh = "1792M";
+    MemoryMax = "2G";
+    MemorySwapMax = "768M";
+    ManagedOOMMemoryPressure = "kill";
+    # At 40% an agent running a flake check was killed while it was still making progress.
+    ManagedOOMMemoryPressureLimit = "80%";
+  };
 
   system.stateVersion = "26.11";
 }

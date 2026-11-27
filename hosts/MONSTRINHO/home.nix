@@ -21,7 +21,11 @@
   systemd.user.services.rex = {
     # Rex's module keeps the old server running after an update, until a restart by hand.
     Unit.X-SwitchMethod = "restart";
-    Service.UMask = "0077";
+    Service = {
+      UMask = "0077";
+      # Rex shares the memory cap of T3's agents.
+      Slice = "app-t3code.slice";
+    };
   };
   # Home Manager writes ~/.ssh/config only with this on, and Rex's module adds its SSH
   # fallback there.
