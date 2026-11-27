@@ -19,6 +19,11 @@
   # Not following nixpkgs: numtide's cache holds these packages built against its own.
   inputs.llm-agents.url = "github:numtide/llm-agents.nix";
 
+  inputs.rex = {
+    url = "https://pkgs.superlogical.com/rex/nix/preview.tar.gz";
+    inputs.nixpkgs.follows = "nixpkgs";
+  };
+
   inputs.mattpocock-skills = {
     url = "github:mattpocock/skills";
     flake = false;
