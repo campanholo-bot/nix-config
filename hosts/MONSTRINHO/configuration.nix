@@ -120,6 +120,11 @@
     MemoryMax = "6G";
     MemorySwapMax = "2G";
   };
+  # The daemon runs the builds that users start.
+  systemd.services.nix-daemon.serviceConfig = {
+    MemoryHigh = "2.5G";
+    MemoryMax = "3G";
+  };
 
   system.stateVersion = "26.11";
 }
