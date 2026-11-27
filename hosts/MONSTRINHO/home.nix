@@ -23,6 +23,13 @@
     Unit.X-SwitchMethod = "restart";
     Service.UMask = "0077";
   };
+  # Home Manager writes ~/.ssh/config only with this on, and Rex's module adds its SSH
+  # fallback there.
+  programs.ssh = {
+    enable = true;
+    # Otherwise Home Manager also writes its old defaults for every host.
+    enableDefaultConfig = false;
+  };
 
   home.stateVersion = "26.11";
 }
